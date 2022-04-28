@@ -7,6 +7,8 @@
   Viewing File sizes
   Disk usage command
 ```
+$ pwd
+/home/pslucas
 $ du -sk text.txt 
 4	text.txt
 $ du -sh text.txt 
