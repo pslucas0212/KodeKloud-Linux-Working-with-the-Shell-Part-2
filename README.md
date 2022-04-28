@@ -6,11 +6,24 @@
   
   Viewing File sizes
   Disk usage command
-  ```
-  $ du -sk test.img
-  $ du -sh test.img
-  $ du
-  ```
+```
+$ du -sk text.txt 
+4	text.txt
+$ du -sh text.txt 
+4.0K	text.txt
+$ du
+4	./.config/procps
+8	./.config
+4	./LabFiles/newDir
+12	./LabFiles
+4	./.local/share/nano
+8	./.local/share
+12	./.local
+4	./.gnupg/private-keys-v1.d
+8	./.gnupg
+8	./.ssh
+96	.
+```
   Archiving Files
   - tar cf 
   - tar stands for Tape Archive
