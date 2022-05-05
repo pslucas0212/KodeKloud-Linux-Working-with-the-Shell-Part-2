@@ -146,18 +146,14 @@ grep -A1 -B1 Chelsea premier-league-table.txt
 3 Chelsea
 4 Manchester City
 ```
-
-
-
- To see the team t
   
   #### IO Redirection
-  Three data streams created when you launch a linux command
-  - Standard Input - stdin - accepts input - $ cat sample.txt
-  - Standard ouput - stdout
-  - standard Error - stderr - redirect to file
+  There are three data streams created when you launch a linux command
+  - Standard Input - stdin - accepts input - $ cat sample.txt - aka (std0)
+  - Standard ouput - stdout - aka (std1)
+  - standard Error - stderr - redirect to file - aka (std2)
   
-  Redirect stdout
+  Redirect stdout.  This will overwrite the contents of the file
   ``` 
   $ echo $SHELL > shell.txt
   ```
@@ -166,22 +162,24 @@ grep -A1 -B1 Chelsea premier-league-table.txt
   $ echo "some text" >> shell.txt
   ```
   
-Redirect STDERR
+Redirect STDERR.  You must use the number 2.  If the file is missing it will create file
 ```
  $ dat missing_file 2> error.txt
  $ cat missing_file 2>> error.txt
  ```
-  Dump stderr
+  Dump stderr. Send the output to the bit bucket /dev/null
 ```
-$ cat missing_file > nul
+$ cat missing_file 2> /dev/nul
  ```
   
 #### Command Line Pipes
-Use standard out of one command as the standard in for another command
+Use command line pipe to send standard out of one command as the standard in for another command.  Use the vertical line symbol to pipe '|'
 ```
 $ grep hello sample.txt | less
 ```
 Pipes output to less command
+
+You can use as many pipes as needed
  
 Tee command - standard output printed to screen before overwriting file
 ```
