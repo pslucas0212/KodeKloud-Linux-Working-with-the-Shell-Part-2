@@ -100,7 +100,7 @@ You can alternatively use use the find command with -name for name of file.  Fin
 grep examples
 linux exam on 19th
 ```
- If you grep "examp" you will get the following
+ If you grep "exam" you will get the following
 ```
 $ grep exam examples.txt 
 grep examples
@@ -127,7 +127,8 @@ grep examples
 ```
 
  To see the team that finished after Aresenal, use -A for seeing the number of lines after a search string:
- $ grep -A1 Arsenal premier-league-table.txt 
+```
+$ grep -A1 Arsenal premier-league-table.txt 
 1 Arsenal
 2 Liverpool
   ```
@@ -164,12 +165,11 @@ grep -A1 -B1 Chelsea premier-league-table.txt
   
 Redirect STDERR.  You must use the number 2.  If the file is missing it will create file
 ```
- $ dat missing_file 2> error.txt
  $ cat missing_file 2>> error.txt
  ```
   Dump stderr. Send the output to the bit bucket /dev/null
 ```
-$ cat missing_file 2> /dev/nul
+$ cat missing_file 2> /dev/null
  ```
   
 #### Command Line Pipes
