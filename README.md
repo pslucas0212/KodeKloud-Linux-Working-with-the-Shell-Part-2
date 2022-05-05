@@ -103,7 +103,7 @@ linux exam on 19th
  If you grep "examp" you will get the following
 ```
 $ grep exam examples.txt 
-grep **exam**ples
+grep \**exam\**ples
 linux **exam** on 19th
 ```
   Find only whole words
