@@ -2,91 +2,117 @@
 
 [KodeKloud Linux Basics Course Notes Table of Contents](https://github.com/pslucas0212/LinuxBasics)
 
-  ## File Compression and Archival
-  
-  Viewing File sizes
+## File Compression and Archival
+
+To view file sized in linux we can use the "du" utility.  The du utility shows the file size in kilobytes
+
+```
+$ du -sk .bash_history 
+32	.bash_history
+```
+Use -h to make the output more human readable
+```
+$ du -sh .bash_history 
+32K	.bash_history
+```
+```
+$ ls -lh .bash_history 
+-rw------- 1 pslucas pslucas 26K May  4 17:47 .bash_history
+```
   Disk usage command
 ```
-$ pwd
-/home/pslucas
-$ du -sk text.txt 
-4	text.txt
-$ du -sh text.txt 
-4.0K	text.txt
-$ du
-4	./.config/procps
-8	./.config
-4	./LabFiles/newDir
-12	./LabFiles
-4	./.local/share/nano
-8	./.local/share
-12	./.local
-4	./.gnupg/private-keys-v1.d
-8	./.gnupg
-8	./.ssh
-96	.
+
+TAR utility is used to group mutliple files and directories into a single smaller file.  TAR stands for Tape Archive.  Files created with TAR are called TAR balls.
+
+Use -c to compress and -f is use to specify name of the tar ball.
 ```
-  Archiving Files
-  - tar cf 
-  - tar stands for Tape Archive
-  - archived files are call tar balls
-  To 'tar' up a file
-  ```
-  $ tar -cf test.tar file1 file2 file3
-  ```
-  - -tf see contents of tar files
-  - -xf to extract tarfile
-  - -cfz - to compress archive file
+$ tar -cf test.tar file1 file2 file
+```
+
+To see contents of the tar ball use -tf
+```
+$ tar -tf test.tar
+```
+
+To extract contents from the tar ball use -xf
+```
+$ tar -xf test.tar
+```
+$ tar -zcf test.tar file1 file2 file
+```
+
+Compression is the technique to reduce file size.
+ 
+ The three most popular compression utilities are:
+ - bzip2
+ - gzip
+ - xz
   
-  Compression options
-  - bzip2
-  - gzip
-  - xz
+ - Uncompress zipped files with bunzip for bzip2, gunzip for gzip, xunzip for xz
   
- - unzip with gunzip for gzip
-  
- - zcat,bzcat,xcat - reads file without uncompressing the file
+ - Use zcat,bzcat,xcat to read zip file contents without uncompressing the file
   
   #### Searching for files and directories
-  Locating file or directory
+  Locating files or directories
   
-  Find files with <city>.txt
+  Find files with city.txt
   ```
-  $ locate City.txt
+  $ locate city.txt
   ```
-  This command may not "work" if the database hasn't been update. Update database
+Locate will return all files with path anf the file name.  This command depends on the locate db.  This command may not "work" if the database hasn't been update. 
   
- ``` 
-  $ sudo updatedb
+ Update the lcoate database
+  
+``` 
+$ sudo updatedb
+```
+  
+You can alternatively use use the find command with -name for name of file.  Find is very powerful
   ```
-  Alternativel use the find command with -name for name of file
-  ```
-  $ find /home/michael -name City.txt
-  ```
-  Search with in file use GREP. case sensitive
-  - search for word second
+ $ find /home/michael -name City.txt
+ ```
+  
+ Search for patters within files or out put use GREP. Note that grep is case sensitive
+ - search for word second in the file sample.txt   This will print the line(s) where the search pattern is found.
   ```
   $ grep second sample.txt
   ```
-  Case insentive
+  To make the grep search case insensitive use the -i switch with grep\
   ```
-  $ grep -i capitl sample.text
+  $ grep -i Capital sample.text
   ```
-  Search recursively
+  Search pattern recursively in a directory
   ```
-  $ grep -r "third line" capital.txt
+  $ grep -r "third line" /home/michael
   ```
   Search for a string through set of files in a directory
   ```
   $ grep -ir 172.16.123.197 /etc
   ```
+  Show all the lines in a file that don't have a particular pattern
+  ```
+  $ grep -v "printed" sample.txt
+  ```
+  
+  Example matching whole words or phrases.  You have the following file
+  ```
+  $ cat examples.txt 
+grep examples
+linux exam on 19th
+```
+ If you grep "examp" you will get the following
+```
+$ grep exam examples.txt 
+grep **exam**ples
+linux **exam** on 19th
+```
   Find only whole words
   ```
   $ grep -w exam examples.text
   ```
   Skipe lines with the search word
   ```
-  $ grep -v examp examples.text
+  $ grep -v exam examples.text
   ```
   To print line berfore or after finding the pattern
  ```
