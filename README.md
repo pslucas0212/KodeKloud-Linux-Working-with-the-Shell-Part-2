@@ -85,9 +85,9 @@ You can alternatively use use the find command with -name for name of file.  Fin
   ```
   $ grep -r "third line" /home/michael
   ```
-  Search for a string through set of files in a directory
+  Search for a string through set of files in a directory.  Note in the example below to search all of /etc we need to be "root"
   ```
-  $ grep -ir 172.16.123.197 /etc
+  $ sudo grep -ir 172.16.238.197 /etc/
   ```
   Show all the lines in a file that don't have a particular pattern
   ```
