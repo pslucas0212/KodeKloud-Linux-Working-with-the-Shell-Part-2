@@ -103,23 +103,53 @@ linux exam on 19th
  If you grep "examp" you will get the following
 ```
 $ grep exam examples.txt 
-grep \**exam\**ples
-linux **exam** on 19th
+grep examples
+linux exam on 19th
 ```
   Find only whole words
   ```
-  $ grep -w exam examples.text
+  $ grep -w exam examples.txt 
+linux exam on 19th
   ```
-  Skipe lines with the search word
+  Skip lines with the search word
   ```
-  $ grep -v exam examples.text
+  $ grep -wv exam examples.txt 
+grep examples
   ```
-  To print line berfore or after finding the pattern
+  
+ Consider the following file:
  ```
-  $ grep -A1 arsenal premier.txt
-  $ grep -B1 arsenal premier.txt
-  $ grep -AB1 aresenal premier.txt
+ $ cat premier-league-table.txt 
+1 Arsenal
+2 Liverpool
+3 Chelsea
+4 Manchester City
+```
+
+ To see the team that finished after Aresenal, use -A for seeing the number of lines after a search string:
+ $ grep -A1 Arsenal premier-league-table.txt 
+1 Arsenal
+2 Liverpool
   ```
+ 
+  To see the team that finished after Aresenal, use -B for seeing the number of lines before a search string:
+```
+$ grep -B1 "Manchester City" premier-league-table.txt 
+3 Chelsea
+4 Manchester City
+```
+
+You can combine -A and -B in a search
+```
+grep -A1 -B1 Chelsea premier-league-table.txt 
+2 Liverpool
+3 Chelsea
+4 Manchester City
+```
+
+
+
+ To see the team t
   
   #### IO Redirection
   Three data streams created when you launch a linux command
