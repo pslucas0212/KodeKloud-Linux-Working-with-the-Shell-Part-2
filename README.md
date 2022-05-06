@@ -199,31 +199,40 @@ Most popular text editor used with Linux
 ```
 
 - Three operation modes in VI
-  - Command
+  - Command - VI starts in the command and only understands commands
   - Instert
   - Last line
   
+ - In the command you can Copy, paste, delete or navigate to a specific line
+ 
 - Switch from command line mode to insert mode type i
-- Switch to command line hit Esc key
+- Switch from insert mode to command by hitting the Esc key
 - Switch to last line mode type :
-- Switch to command mode hit esc key
+- You can also enter the Insert mode with O A I o a I
   
 Command Mode
+- The mouse cursor allows you to highlight and the copy, cut, paste or inster text
 - copy, cut, past, insert text
 - use arrow keys or hjkl to navigate key
-- copy line type yy
-- paste use p
-- zz to save file
-- to delete charactaer, type x
-- to delete entire line type dd
-- to delete 3 lines type d3d
-- undo edit type u
-- to find text type /<text>, to move down type n to move N
-- to write insert text type i, o, a, or A  Last line wil indidcate that you are in Insert mode
+- to copy a line, move the cursor to the line and type yy
+- Next move the cursor above the line where you want to paste the text and use p
+- ZZ to save file
+- to delete charactaer, move cursor to the desired character and type x
+- to delete entire line move the cursor anywhere on the line you are deleting and  type dd
+- to delete 3 lines type d3d.  Change the 3 to any number of lines you want to delet
+- to undo a change, type u
+- To redo a change type Ctrl-r
+- to find text type /<text>, to move down through the text, type n to move down, to move up N
+- move ? to move up the file
+- to enter inser moded type i, o, a, or A  Last line wil indidcate that you are in Insert mode
+  - i - insert
+  - a - append
+  - overwrite
 - to go to last line mode type :
     - to save file type :w
     - to quite type : then q
     - to write and quite type : then wq
+    - to quit with out making changes type :q!
  
 VIM is VI improved - sometimes vi now points to vim.
 
