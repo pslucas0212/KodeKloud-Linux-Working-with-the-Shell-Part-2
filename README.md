@@ -20,8 +20,7 @@ $ ls -lh .bash_history
 -rw------- 1 pslucas pslucas 26K May  4 17:47 .bash_history
 ```
   Disk usage command
-```
-
+\
 TAR utility is used to group mutliple files and directories into a single smaller file.  TAR stands for Tape Archive.  Files created with TAR are called TAR balls.
 
 Use -c to compress and -f is use to specify name of the tar ball.
