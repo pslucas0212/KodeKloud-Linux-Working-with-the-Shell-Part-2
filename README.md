@@ -36,7 +36,6 @@ $ tar -tf test.tar
 To extract contents from the tar ball use -xf
 ```
 $ tar -xf test.tar
-```
 $ tar -zcf test.tar file1 file2 file
 ```
 
